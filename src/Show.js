@@ -1,7 +1,7 @@
 import React from 'react'
 // import MyContext from './MyContext';
 
-const Story = (props) => {
+const Show = (props) => {
     return (
         <MyContext.Consumer>
         {context => {
@@ -15,16 +15,13 @@ const Story = (props) => {
                 return (
                     <div>
                         <h2>{show.title}</h2>
-                        <h4>Seed Word: {show.word}</h4>
-                        <h5>Definition: {show.definition}</h5>
-                        <h5>Pronunciation: {show.pronunciation}</h5>
-    
+{/*     
                         <hr />
                         <h3>Summary:</h3>
                         <h3>{show.summary}</h3>
                         <br />
                         <h4>Body:</h4>
-                        <h4>{show.body}</h4>
+                        <h4>{show.body}</h4> */}
                     </div>
                 )
             }

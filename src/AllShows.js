@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import MyShows from './MyShows';
-import Info from './Info'
+import MyContext from './MyContext';
+
+
 
 const AllShows = (props) => {
   const [shows, setShows] = useState ({
@@ -38,22 +39,14 @@ const AllShows = (props) => {
   }, [getShow])
 
 
-//   useEffect(() => {
-//     fetch('https://api.tvmaze.com/search/shows?q=:query')
-//     .then(r => r.json())
-//     .then(data => {
-//       console.log(data)  
-//     })
-//   })
-
-//   return (
-    // <MyContext.Consumer>
-        // {context =>  {
-            // const handleChange = (e) => {
-            //     setMyShows(
-            //         {...shows, [e.target.name]: e.target.value}
-            //     );
-            // }
+  return (
+    <MyContext.Consumer>
+        {context =>  {
+            const handleChange = (e) => {
+                setShows(
+                    {...shows, [e.target.name]: e.target.value}
+                );
+            }
         
             const handleSubmit = (e) => {
                 e.preventDefault()
@@ -62,27 +55,27 @@ const AllShows = (props) => {
                     summary: shows.summary,
                     body: shows.body,
                 }
-                // context.addShow(newShow)
-                // props.history.push('/shows')
+                context.addShow(newShow)
+                props.history.push('/shows')
             }
 
-        // return (
-        //     <div>
-        //         <Word changeTheWord={changeWord} storyWord={word}/>
-        //         <form onSubmit={handleSubmit}>
-        //             <label>Title:</label><br />
-        //             <input name="title" onChange={handleChange} value={shows.title} type="text" /><br />
-        //             <label>Summary:</label><br />
-        //             <textarea name="summary" onChange={handleChange} value={shows.summary} /><br />
-        //             <label>Body:</label><br />
-        //             <textarea name="body" onChange={handleChange} value={shows.body} /><br />
-        //             <input type="submit" />
-        //         </form>
-        //     </div>)
-            // )}
-//         }
-//     </MyContext.Consumer>
-// );
+      return (
+          <div>
+              {/* <Word changeTheWord={changeWord} storyWord={word}/> */}
+              <form onSubmit={handleSubmit}>
+                  <label>Title:</label><br />
+                  <input name="title" onChange={handleChange} value={shows.title} type="text" /><br />
+                  <label>Summary:</label><br />
+                  <textarea name="summary" onChange={handleChange} value={shows.summary} /><br />
+                  <label>Body:</label><br />
+                  <textarea name="body" onChange={handleChange} value={shows.body} /><br />
+                  <input type="submit" />
+              </form>
+          </div>)
+          }
+      }
+  </MyContext.Consumer>
+);
 
 
 

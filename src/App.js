@@ -4,7 +4,6 @@ import Home from './Home';
 import Navigation from './Navigation';
 import MyShows from './MyShows';
 import AllShows from './AllShows';
-import Info from './Info';
 import './App.css';
 
 
