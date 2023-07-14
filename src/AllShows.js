@@ -33,9 +33,10 @@ const AllShows = (props) => {
     }
   )
 
-//   useEffect(() => {
-//     getShow()
-//   }, [getShow])
+  useEffect(() => {
+    getShow()
+  }, [getShow])
+
 
 //   useEffect(() => {
 //     fetch('https://api.tvmaze.com/search/shows?q=:query')

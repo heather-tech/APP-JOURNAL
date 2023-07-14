@@ -10,7 +10,7 @@ const myShows = () => {
     const [myShows, setMyShows] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3001/shows/`)
+        fetch(`http://localhost:3001/shows/:id`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
