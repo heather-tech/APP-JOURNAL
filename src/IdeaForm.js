@@ -4,75 +4,45 @@ import MyContext from './MyContext';
 
 
 const IdeaForm = (props) => {
-  const [shows, setShows] = useState ({
+  const [idea, setIdea] = useState ({
     title: '',
     summary: '',
     functionalities: ''
   })
 
-  const [myShows, setMyShows] = useState ({
-    title: '',
-    summary: '',
-    functionalities: '',
-
-  })
-
-  const getShow = useCallback (
-    () => {
-        fetch(`https://api.tvmaze.com/shows`)
-        .then(res => res.json())
-        .then(data => {
-            return data
-            // console.log(data)
-            // setMyShows({
-            //     title: data[0].title,
-            //     summary: data[0].summary,
-            //     body: data[0].body
-
-            // })
-        })
-    }
-  )
-
-  useEffect(() => {
-    getShow()
-  }, [getShow])
-
-
   return (
     <MyContext.Consumer>
         {context =>  {
             const handleChange = (e) => {
-                setShows(
-                    {...shows, [e.target.name]: e.target.value}
+                setIdea(
+                    {...idea, [e.target.name]: e.target.value}
                 );
             }
         
             const handleSubmit = (e) => {
                 e.preventDefault()
-                const newShow = {
-                    title: shows.title,
-                    summary: shows.summary,
-                    body: shows.body,
+                const newIdea = {
+                    appName: idea.appName,
+                    summary: idea.summary,
+                    functionalities: idea.functionalities,
                 }
-                context.addShow(newShow)
-                props.history.push('/shows')
+                context.addIdea(newIdea)
+                props.history.push('/ideas')
             }
 
       return (
           <div>
-              {/* <Word changeTheWord={changeWord} storyWord={word}/> */}
               <form onSubmit={handleSubmit}>
-                  <label>Title:</label>
+                  <label>App Name:</label>
                   <br />
-                  <input name="title" onChange={handleChange} value={shows.title} type="text" />
+                  <input name="appName" onChange={handleChange} value={idea.appName} type="text" />
                   <br />
                   <label>Summary:</label>
                   <br />
-                  <textarea name="summary" onChange={handleChange} value={shows.summary} /><br />
+                  <textarea name="summary" onChange={handleChange} value={idea.summary} /><br />
                   <label>Functionalities:</label>
                   <br />
-                  <textarea name="functionalities" onChange={handleChange} value={shows.body} />
+                  <textarea name="functionalities" onChange={handleChange} value={idea.functionalities} />
                   <br />
                   <input type="submit" />
               </form>

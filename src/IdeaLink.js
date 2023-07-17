@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const IdeaLink = ({idea}) => {
         return (
             <div>
-                <Link key={idea.id} to={`/shows/${idea.id}`}>
-                    <li>{idea.title}</li>
+                <Link key={idea.id} to={`/ideas/${idea.id}`}>
+                    <li>{idea.appName}</li>
                 </Link>
 
             </div>

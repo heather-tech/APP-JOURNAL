@@ -14,13 +14,10 @@ const Idea = (props) => {
     
                 return (
                     <div>
-                        <h2>{idea.title}</h2>
+                        <h2>{idea.appName}</h2>
                         <hr />
                         <h3>Summary:</h3>
                         <h3>{idea.summary}</h3>
-                        <br />
-                        <h4>Body:</h4>
-                        <h4>{idea.body}</h4>
                         <br />
                         <h4>Functionalities:</h4>
                         <h4>{idea.functionalities}</h4>

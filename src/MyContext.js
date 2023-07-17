@@ -5,36 +5,36 @@ const MyContext = React.createContext();
 export default MyContext;
 
 const MyProvider = (props) => {
-    const [shows, setShows] = useState([])
+    const [ideas, setIdeas] = useState([])
 
-    useEffect(() => {
-        fetch("http://localhost:3001/shows")
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setShows(data)
-        })
-    }, [])
+    // useEffect(() => {
+    //     fetch("http://localhost:3001/shows")
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data)
+    //         setShows(data)
+    //     })
+    // }, [])
 
-    const addShow = (show) => {
-        console.log("The Show", show)
-        fetch("http://localhost:3001/shows", {
+    const addIdea = (idea) => {
+        console.log(idea)
+        fetch("http://localhost:3001/ideas", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(show) 
+            body: JSON.stringify(idea) 
         })
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            setShows([...shows, data])
+            setIdeas ([...ideas, data])
         })
     }
 
     return (<MyContext.Provider value={{
-            shows: shows, 
-            addShow: addShow
+            ideas: ideas, 
+            addIdea: addIdea
         }}>{props.children}
         </MyContext.Provider>)
     

@@ -29,16 +29,16 @@ const Navigation = () =>
       >Home</NavLink>
 
       <NavLink
-        to="/ideas"
+        to="/ideas/new"
         // exact
         style={link}
         activestyle={{
           background: "darkblue",
         }}
-      >All Shows</NavLink>
+      >New App Idea</NavLink>
 
 <NavLink
-        to="/ideas/new"
+        to="/ideas"
         /* set exact so it knows to only set activeStyle when route is deeply equal to link */
         // exact
         /* add styling to Navlink */
@@ -47,7 +47,7 @@ const Navigation = () =>
         activestyle={{
           background: "darkblue",
         }}
-      >My Shows</NavLink>
+      >My App Ideas</NavLink>
     </div>;
 
 
