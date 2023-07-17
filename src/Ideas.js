@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import NewButton from './NewButton';
-import ShowsLink from './ShowsLink';
+import IdeaLink from './IdeaLink';
 import MyContext from './MyContext';
 
 
 
-const Shows= () => {
+
+const Ideas = () => {
     return (
         <MyContext.Consumer>
         {context => {
-                const showsList = context.shows.map(s => <ShowsLink key={s.id} show={s} />)
+                const ideasList = context.ideas.map(i => <IdeaLink key={i.id} idea={i} />)
                 return(
                     <div>
-                        <h3>My Shows</h3> 
+                        <h3>My Ideas</h3> 
                         <hr/>
-                        {showsList}
+                        {ideasList}
                         <br/>
                         <br/>
                         <NewButton />    
@@ -26,4 +27,4 @@ const Shows= () => {
     )
 }
 
-export default Shows
+export default Ideas

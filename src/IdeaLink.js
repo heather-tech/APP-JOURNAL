@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ShowsLink = ({show}) => {
+const IdeaLink = ({idea}) => {
         return (
             <div>
-                <Link key={show.id} to={`/shows/${show.id}`}>
-                    <li>{show.title}</li>
+                <Link key={idea.id} to={`/shows/${idea.id}`}>
+                    <li>{idea.title}</li>
                 </Link>
 
             </div>
@@ -13,4 +13,4 @@ const ShowsLink = ({show}) => {
         )
     } 
 
-export default ShowsLink
+export default IdeaLink

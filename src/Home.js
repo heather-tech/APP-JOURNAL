@@ -4,9 +4,9 @@ import React from 'react'
 const Home = () => {
     return (
         <div>
-            <h1>Find A Show</h1>
+            <h1>App Journal</h1>
             <hr/>
-            <p>Find your favorite show!</p>
+            <p>Store all of your app ideas!</p>
 
         </div>
     )

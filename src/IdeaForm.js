@@ -3,19 +3,19 @@ import MyContext from './MyContext';
 
 
 
-const AllShows = (props) => {
+const IdeaForm = (props) => {
   const [shows, setShows] = useState ({
     title: '',
     summary: '',
-    body: ''
+    functionalities: ''
   })
 
-//   const [myShows, setMyShows] = useState ({
-//     title: '',
-//     summary: '',
-//     body: '',
+  const [myShows, setMyShows] = useState ({
+    title: '',
+    summary: '',
+    functionalities: '',
 
-//   })
+  })
 
   const getShow = useCallback (
     () => {
@@ -63,12 +63,17 @@ const AllShows = (props) => {
           <div>
               {/* <Word changeTheWord={changeWord} storyWord={word}/> */}
               <form onSubmit={handleSubmit}>
-                  <label>Title:</label><br />
-                  <input name="title" onChange={handleChange} value={shows.title} type="text" /><br />
-                  <label>Summary:</label><br />
+                  <label>Title:</label>
+                  <br />
+                  <input name="title" onChange={handleChange} value={shows.title} type="text" />
+                  <br />
+                  <label>Summary:</label>
+                  <br />
                   <textarea name="summary" onChange={handleChange} value={shows.summary} /><br />
-                  <label>Body:</label><br />
-                  <textarea name="body" onChange={handleChange} value={shows.body} /><br />
+                  <label>Functionalities:</label>
+                  <br />
+                  <textarea name="functionalities" onChange={handleChange} value={shows.body} />
+                  <br />
                   <input type="submit" />
               </form>
           </div>)
@@ -81,4 +86,4 @@ const AllShows = (props) => {
 
 }
 
-export default AllShows
+export default IdeaForm

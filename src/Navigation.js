@@ -29,7 +29,7 @@ const Navigation = () =>
       >Home</NavLink>
 
       <NavLink
-        to="/shows"
+        to="/ideas"
         // exact
         style={link}
         activestyle={{
@@ -38,7 +38,7 @@ const Navigation = () =>
       >All Shows</NavLink>
 
 <NavLink
-        to="/shows/new"
+        to="/ideas/new"
         /* set exact so it knows to only set activeStyle when route is deeply equal to link */
         // exact
         /* add styling to Navlink */

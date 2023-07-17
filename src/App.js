@@ -2,8 +2,9 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './Home';
 import Navigation from './Navigation';
-import MyShows from './MyShows';
-import AllShows from './AllShows';
+import Ideas from './Ideas';
+import IdeaForm from './IdeaForm';
+import Idea from './Idea';
 import './App.css';
 
 
@@ -15,9 +16,10 @@ const App = () => {
       <div className="App">
         <Routes>
           <Route exact path="/" Component={Home} />
-          <Route exact path="/shows" Component={AllShows} />
-          <Route exact path='/shows/:id' Component={MyShows} />
-          {/* <Route exact path='/' Component={Home} /> */}
+          <Route exact path='/ideas' Component={Ideas} />
+          <Route exact path="/ideas/new" Component={IdeaForm} />
+          <Route exact path='/ideas/:id' Component={Idea} />
+          
         </Routes>
 
       </div>
