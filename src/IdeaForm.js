@@ -35,14 +35,28 @@ const IdeaForm = (props) => {
               <form onSubmit={handleSubmit}>
                   <label>App Name:</label>
                   <br />
-                  <input name="appName" onChange={handleChange} value={idea.appName} type="text" />
+                  <input 
+                    name="appName" 
+                    onChange={handleChange} 
+                    value={idea.appName} 
+                    type="text" 
+                  />
                   <br />
                   <label>Summary:</label>
                   <br />
-                  <textarea name="summary" onChange={handleChange} value={idea.summary} /><br />
+                  <textarea 
+                    name="summary" 
+                    onChange={handleChange} 
+                    value={idea.summary} 
+                  />
+                  <br />
                   <label>Functionalities:</label>
                   <br />
-                  <textarea name="functionalities" onChange={handleChange} value={idea.functionalities} />
+                  <textarea 
+                    name="functionalities" 
+                    onChange={handleChange} 
+                    value={idea.functionalities} 
+                  />
                   <br />
                   <input type="submit" />
               </form>

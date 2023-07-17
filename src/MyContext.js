@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 
 const MyContext = React.createContext();
 
-export default MyContext;
+
 
 const MyProvider = (props) => {
     const [ideas, setIdeas] = useState([])
 
-    // useEffect(() => {
-    //     fetch("http://localhost:3001/shows")
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         setShows(data)
-    //     })
-    // }, [])
+    useEffect(() => {
+        fetch("http://localhost:3001/ideas")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setIdeas(data)
+        })
+    }, [])
 
     const addIdea = (idea) => {
         console.log(idea)
@@ -43,3 +43,6 @@ const MyProvider = (props) => {
 const MyConsumer = MyContext.Consumer
 
 export  { MyProvider, MyConsumer };
+
+
+export default MyContext;
