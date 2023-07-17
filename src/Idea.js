@@ -1,5 +1,5 @@
 import React from 'react'
-// import MyContext from './MyContext';
+import MyContext from './MyContext';
 
 const Idea = (props) => {
     return (
@@ -15,13 +15,16 @@ const Idea = (props) => {
                 return (
                     <div>
                         <h2>{idea.title}</h2>
-    
                         <hr />
                         <h3>Summary:</h3>
                         <h3>{idea.summary}</h3>
                         <br />
                         <h4>Body:</h4>
+                        <h4>{idea.body}</h4>
+                        <br />
+                        <h4>Functionalities:</h4>
                         <h4>{idea.functionalities}</h4>
+                        
                     </div>
                 )
             }

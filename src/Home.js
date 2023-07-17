@@ -6,7 +6,7 @@ const Home = () => {
         <div>
             <h1>App Journal</h1>
             <hr/>
-            <p>Store all of your app ideas!</p>
+            <p>A place for all of your app ideas!</p>
 
         </div>
     )
