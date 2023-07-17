@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import MyContext from './MyContext';
 import NewButton from './NewButton';
 import IdeaLink from './IdeaLink';
-import MyContext from './MyContext';
 
-
-
-
-const Ideas = () => {
+const Ideas= () => {
     return (
         <MyContext.Consumer>
         {context => {
                 const ideasList = context.ideas.map(i => <IdeaLink key={i.id} idea={i} />)
                 return(
                     <div>
-                        <h3>My Ideas</h3> 
+                        <h3>My ideas</h3> 
                         <hr/>
                         {ideasList}
                         <br/>
