@@ -1,76 +1,32 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 
-function IdeaForm() {
-  const [name, setName] = useState("");
-  const [summary, setSummary] = useState("");
-  const [func, setFunc] = useState("");
-    // title: '',
-    // summary: '',
-    // functionalities: '',
-    const navigate = useNavigate();
+const IdeaForm = ({ addIdea }) => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
-    function handleSubmit(e) {
-      e.preventDefault()
-      const newIdea = {
-          idea: { name, summary, func }
-      }
-      fetch("http://localhost:3001/ideas/new", {
-    method: "POST",
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newIdea) 
-  })
-    .then(res => res.json())
-    .then(data => {
-
-      navigate(`/ideas/${data.idea.id}`)
-    })
-  }
- 
-
-
-
-  function handleChange(e) {
-    setIdea({
-      ...idea,
-      [e.target.name] : e.target.value,
-    })
-  }
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addIdea({ title, description });
+    setTitle('');
+    setDescription('');
+  };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>App Name:</label>
-        <br />
-        <input 
-          name="appName" 
-          onChange={handleChange} 
-          value={idea.appName} 
-          type="text" 
-        />
-        <br />
-        <label>Summary:</label>
-        <br />
-        <textarea 
-          name="summary" 
-          onChange={handleChange} 
-          value={idea.summary} 
-        />
-        <br />
-        <label>Functionalities:</label>
-        <br />
-        <textarea 
-          name="functionalities" 
-          onChange={handleChange} 
-          value={idea.functionalities} 
-        />
-        <br />
-        <input type="submit" />
-      </form>
-    </div>)
-}
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <textarea
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button type="submit">Add Idea</button>
+    </form>
+  );
+};
 
-export default IdeaForm
+export default IdeaForm;
