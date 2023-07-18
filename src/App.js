@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
+import Home from './Home';
 import ideasData from './db.json'
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
   const saveIdeas = async () => {
     try {
       const response = await fetch('./db.json', {
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
