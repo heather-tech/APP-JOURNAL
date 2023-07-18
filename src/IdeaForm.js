@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 function IdeaForm({ addIdea }) {
-  const [formData, setFormData] = useState({
+  const [idea, setIdea] = useState({
     title: '',
     summary: '',
     functionalities: ''
@@ -9,8 +9,8 @@ function IdeaForm({ addIdea }) {
 
 
 function handleChange(e) {
-  setFormData({
-    ...formData,
+  setIdea({
+    ...idea,
     [e.target.name] : e.target.value,
   })
 }
@@ -19,10 +19,10 @@ function handleSubmit(e) {
   e.preventDefault()
 
   const newIdea = {
-    ...formData,
+    ...idea,
   }
 
-fetch("http://localhost:3001/ideas", {
+fetch("http://localhost:3001/ideas/new", {
   method: "POST",
   headers: {
       'Content-Type': 'application/json'
