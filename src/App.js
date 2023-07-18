@@ -1,37 +1,3 @@
-// import React from 'react'
-// import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-// import Home from './Home';
-// import Navigation from './Navigation';
-// import Ideas from './MyIdeas';
-// import IdeaForm from './IdeaForm';
-// import Idea from './Idea';
-// // import Button from '@material-ui/core';
-// import './App.css';
-
-
-
-// function App() {
-
-//   return (
-//     <Router>
-//       <Navigation />
-//       <div className="App">
-//         <Routes>
-
-//           <Route exact path="/" Component={Home} />
-//           <Route exact path='/ideas' Component={Ideas} />
-//           <Route exact path="/ideas/new" Component={IdeaForm} />
-//           <Route exact path='/ideas/:id' Component={Idea} />
-          
-//         </Routes>
-//       </div>
-//     </Router>
-   
-//   );
-// }
-
-// export default App;
-
 import React, { useState, useEffect } from 'react';
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
@@ -41,8 +7,37 @@ const App = () => {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
-    setIdeas(ideasData.ideas);
+    fetchIdeas();
   }, []);
+
+  const fetchIdeas = async () => {
+    try {
+      const response = await fetch('./db.json');
+      const data = await response.json();
+      setIdeas(data.ideas);
+    } catch (error) {
+      console.error('Error fetching ideas:', error);
+    }
+  };
+
+  const saveIdeas = async () => {
+    try {
+      const response = await fetch('./db.json', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ideas }),
+      });
+      if (response.ok) {
+        console.log('Ideas saved successfully!');
+      } else {
+        console.error('Failed to save ideas:', response.status);
+      }
+    } catch (error) {
+      console.error('Error saving ideas:', error);
+    }
+  };
 
   const addIdea = (idea) => {
     const newIdea = { id: Date.now(), ...idea };
@@ -54,11 +49,22 @@ const App = () => {
     setIdeas(updatedIdeas);
   };
 
+  const editIdea = (id, updatedIdea) => {
+    const updatedIdeas = ideas.map((idea) =>
+      idea.id === id ? { ...idea, ...updatedIdea } : idea
+    );
+    setIdeas(updatedIdeas);
+  };
+
+  useEffect(() => {
+    saveIdeas();
+  }, [ideas]);
+
   return (
     <div>
       <h1>Idea App</h1>
       <IdeaForm addIdea={addIdea} />
-      <IdeaList ideas={ideas} deleteIdea={deleteIdea} />
+      <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />
     </div>
   );
 };
