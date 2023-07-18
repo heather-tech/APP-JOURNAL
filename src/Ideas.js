@@ -1,27 +1,31 @@
 import React from 'react'
-import MyContext from './MyContext';
 import NewButton from './NewButton';
 import IdeaLink from './IdeaLink';
+import IdeaForm from './IdeaForm';
 
-const Ideas= () => {
-    return (
-        <MyContext.Consumer>
-        {context => {
-                const ideasList = context.ideas.map(i => <IdeaLink key={i.id} idea={i} />)
-                return(
-                    <div>
-                        <h3>My ideas</h3> 
-                        <hr/>
-                        {ideasList}
-                        <br/>
-                        <br/>
-                        <NewButton />    
-                    </div>
-                )
-            }
-        }
-        </MyContext.Consumer>
+function Ideas({ ideas, onDeleteIdea, onUpdateIdea }) {
+    const ideaList = ideas.map((idea) => (
+      <IdeaForm
+        key={idea.id}
+        idea={idea}
+        onDeleteIdea={onDeleteIdea}
+        onUpdateIdea={onUpdateIdea}
+      />
+    ));
+
+
+    // const ideasList = context.ideas.map(i => <IdeaLink key={i.id} idea={i} />)
+    return(
+        <div>
+            <h3>My ideas</h3> 
+            <hr/>
+            {ideaList}
+            <br/>
+            <br/>
+            <NewButton />    
+        </div>
     )
+            
 }
 
 export default Ideas

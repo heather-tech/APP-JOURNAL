@@ -1,17 +1,18 @@
 import React from 'react'
-import MyContext from './MyContext';
 
+
+function NewIdea({  }) {
+    const [body, setBody] = useState("")
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        const data = {
+
+        }
+    }
+}
 const Idea = (props) => {
-    return (
-        <MyContext.Consumer>
-        {context => {
-            if (context.ideas.length === 0 ) {
-                return (
-                    <h5>Loading....</h5>
-                )
-            } else {
-                const idea = context.ideas.find(i => `${i.id}` === props.match.params.id)
-    
+   
                 return (
                     <div>
                         <h2>{idea.appName}</h2>
@@ -25,9 +26,5 @@ const Idea = (props) => {
                     </div>
                 )
             }
-        }}
-        </MyContext.Consumer>
-    )
-}
 
 export default Idea
