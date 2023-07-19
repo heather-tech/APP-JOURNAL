@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
+import Button from '@mui/material/Button';
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
 import NavBar from './NavBar';
@@ -85,6 +86,7 @@ const App = () => {
   return (
     <div>
       <h1>APP JOURNAL</h1>
+      <NavBar />
       <IdeaForm addIdea={addIdea} />
       <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
 
 const IdeaForm = ({ addIdea }) => {
   const [title, setTitle] = useState('');
@@ -24,7 +25,7 @@ const IdeaForm = ({ addIdea }) => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button type="submit">Add Idea</button>
+      <Button variant="contained">Add Idea</Button>
     </form>
   );
 };
