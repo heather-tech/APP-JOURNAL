@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
-import Home from './Home';
-import ideasData from './db.json'
+import NavBar from './NavBar';
+// import Home from './Home';
+// import ideasData from './db.json'
 
 const App = () => {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
-    fetchIdeas();
+    fetch("/ideas")
+      .then(r => r.json())
+      .then(data => setIdeas(data.ideas))
   }, []);
 
-  const fetchIdeas = async () => {
-    try {
-      const response = await fetch('./db.json');
-      const data = await response.json();
-      setIdeas(data.ideas);
-    } catch (error) {
-      console.error('Error fetching ideas:', error);
-    }
-  };
+
 
   const saveIdeas = async () => {
     try {
@@ -63,7 +58,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Idea App</h1>
+      <h1>APP JOURNAL</h1>
       <IdeaForm addIdea={addIdea} />
       <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />
     </div>
