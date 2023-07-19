@@ -6,28 +6,28 @@ import NavBar from './NavBar';
 // import Home from './Home';
 // import ideasData from './db.json'
 
-function App() {
+// function App() {
     
-  return (
-      <div>
-          <NavBar />
-          <Routes>              
-            <Route exact path="/">
-                  <Home />
-              </Route>
-              <Route exact path="/ideas">
-                  <ProjectList />
-              </Route>
-              <Route path="/ideas/new">
-                  <New Idea />
-              </Route>
-              <Route path="/ideas/:id">
-                  <My Ideas />
-              </Route>
-          </Routes>
-      </div>
-  );
-}
+//   return (
+//       <div>
+//           <NavBar />
+//           <Routes>              
+//             <Route exact path="/">
+//                   <Home />
+//               </Route>
+//               <Route exact path="/ideas">
+//                   <ProjectList />
+//               </Route>
+//               <Route path="/ideas/new">
+//                   <New Idea />
+//               </Route>
+//               <Route path="/ideas/:id">
+//                   <My Ideas />
+//               </Route>
+//           </Routes>
+//       </div>
+//   );
+// }
 
 
 
@@ -35,9 +35,9 @@ const App = () => {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
-    fetch("/ideas")
+    fetch("http://localhost:3001/ideas")
       .then(r => r.json())
-      .then(data => setIdeas(data.ideas))
+      .then(data => setIdeas(data))
   }, []);
 
 
@@ -45,7 +45,7 @@ const App = () => {
   const saveIdeas = async () => {
     try {
       const response = await fetch('./db.json', {
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },

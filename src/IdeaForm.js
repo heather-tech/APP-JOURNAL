@@ -15,7 +15,7 @@ const IdeaForm = ({ addIdea }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Title"
+        placeholder="App Name"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
