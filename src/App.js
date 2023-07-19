@@ -44,7 +44,7 @@ const App = () => {
 
   const saveIdeas = async () => {
     try {
-      const response = await fetch('./db.json', {
+      const response = await fetch('http://localhost:3001/ideas', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
