@@ -1,9 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
 import NavBar from './NavBar';
 // import Home from './Home';
 // import ideasData from './db.json'
+
+function App() {
+    
+  return (
+      <div>
+          <NavBar />
+          <Routes>              
+            <Route exact path="/">
+                  <Home />
+              </Route>
+              <Route exact path="/ideas">
+                  <ProjectList />
+              </Route>
+              <Route path="/ideas/new">
+                  <New Idea />
+              </Route>
+              <Route path="/ideas/:id">
+                  <My Ideas />
+              </Route>
+          </Routes>
+      </div>
+  );
+}
+
+
 
 const App = () => {
   const [ideas, setIdeas] = useState([]);
