@@ -24,7 +24,7 @@ const App = () => {
   const saveIdeas = async () => {
     try {
       const response = await fetch('./db.json', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
