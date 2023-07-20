@@ -16,10 +16,14 @@ const IdeaForm = ({ addIdea }) => {
     .then(ideaObject => {
       console.log(ideaObject)
           addIdea( ideaObject );
+
     setTitle('');
     setDescription('');
     })
 
+        .catch(err => {
+          console.log(err)
+        })
   };
 
 

@@ -4,7 +4,7 @@ import Idea from './Idea';
 const IdeaList = ({ ideas, deleteIdea, editIdea }) => {
   return (
     <div>
-      {ideas.map((idea) => {
+      {ideas && ideas.map((idea) => {
         return(
         <Idea 
           key={idea.id} 

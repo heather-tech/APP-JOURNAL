@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <div>
-      <Home />
+      {/* <Home /> */}
       <NavBar />
       
       {/* <IdeaForm addIdea={addIdea} />
@@ -44,8 +44,9 @@ const App = () => {
 
         <Routes>              
           <Route path="/" element={<Home />} />
-          <Route path="/ideas" element={<IdeaList />} />
           <Route path="/ideas/new" element={<IdeaForm />} />
+          <Route path="/ideas" element={<IdeaList />} />
+          
           </Routes>
  
     </div>
