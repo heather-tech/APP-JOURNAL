@@ -6,12 +6,15 @@ const IdeaList = ({ ideas, deleteIdea, editIdea }) => {
     <div>
       {ideas && ideas.map((idea) => {
         return(
-        <Idea 
+        
+        <Idea
+        
           key={idea.id} 
           idea={idea} 
           deleteIdea={deleteIdea} 
           editIdea={editIdea}
           />
+          
         );
       })}
     </div>
