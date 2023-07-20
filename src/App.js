@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
 import NavBar from './NavBar';
 import Home from './Home';
-
-
-// function App() {
-    
 
 
 const App = () => {
@@ -37,27 +33,20 @@ const App = () => {
   };
 
 
-  // useEffect(() => {
-  //   saveIdeas();
-  // }, [ideas]);
-
   return (
     <div>
-      <h1>APP JOURNAL</h1>
+      <Home />
       <NavBar />
-      <IdeaForm addIdea={addIdea} />
+      
+      {/* <IdeaForm addIdea={addIdea} />
       <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />
-        <NavBar />
+        <NavBar /> */}
+
         <Routes>              
           <Route path="/" element={<Home />} />
-          <Route exact path="/ideas" element={<IdeaList />} />
+          <Route path="/ideas" element={<IdeaList />} />
           <Route path="/ideas/new" element={<IdeaForm />} />
           </Routes>
-                
-
-            {/* <Route path="/ideas">
-                <MyIdeas />
-            </Route> */}
  
     </div>
     );

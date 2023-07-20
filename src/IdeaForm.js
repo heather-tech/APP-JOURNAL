@@ -22,9 +22,7 @@ const IdeaForm = ({ addIdea }) => {
 
   };
 
-  const saveIdeas = () => {
- 
-  };
+
 
 
   return (
@@ -40,7 +38,7 @@ const IdeaForm = ({ addIdea }) => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button type="submit" >Add Idea</button>
+      <button type='submit' >Add Idea</button>
     </form>
   );
 };

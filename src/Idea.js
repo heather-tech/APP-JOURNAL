@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
 const Idea = ({ idea, deleteIdea, editIdea }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -27,7 +27,7 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <Button variant="contained" type="submit">Save</Button>
+          <button type="submit">Save</button>
         </form>
       </li>
     );
