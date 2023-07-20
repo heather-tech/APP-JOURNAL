@@ -7,26 +7,23 @@ const IdeaForm = ({ addIdea }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addIdea({ title, description });
+    fetch('http://localhost:3001/ideas', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',},
+      body: JSON.stringify({ title:title, description:description }),
+    })
+    .then(r => r.json())
+    .then(ideaObject => {
+      console.log(ideaObject)
+          addIdea( ideaObject );
     setTitle('');
     setDescription('');
+    })
+
   };
 
-  const saveIdeas = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/ideas', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json',},
-        body: JSON.stringify({ addIdea }),
-      });
-      if (response.ok) {
-        console.log('Ideas saved');
-      } else {
-        console.error('Failed to save:', response.status);
-      }
-    } catch (error) {
-      console.error('Error saving:', error);
-    }
+  const saveIdeas = () => {
+ 
   };
 
 
@@ -43,7 +40,7 @@ const IdeaForm = ({ addIdea }) => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <Button variant="contained">Add Idea</Button>
+      <button type="submit" >Add Idea</button>
     </form>
   );
 };
