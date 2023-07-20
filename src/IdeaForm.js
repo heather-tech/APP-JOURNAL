@@ -12,6 +12,24 @@ const IdeaForm = ({ addIdea }) => {
     setDescription('');
   };
 
+  const saveIdeas = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/ideas', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        body: JSON.stringify({ addIdea }),
+      });
+      if (response.ok) {
+        console.log('Ideas saved');
+      } else {
+        console.error('Failed to save:', response.status);
+      }
+    } catch (error) {
+      console.error('Error saving:', error);
+    }
+  };
+
+
   return (
     <form onSubmit={handleSubmit}>
       <input

@@ -41,26 +41,26 @@ const App = () => {
       .then(data => setIdeas(data))
   }, []);
 
+// Moved to IdeaForm
 
-
-  const saveIdeas = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/ideas', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ideas }),
-      });
-      if (response.ok) {
-        console.log('Ideas saved successfully!');
-      } else {
-        console.error('Failed to save ideas:', response.status);
-      }
-    } catch (error) {
-      console.error('Error saving ideas:', error);
-    }
-  };
+  // const saveIdeas = async () => {
+  //   try {
+  //     const response = await fetch('http://localhost:3001/ideas', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ saveIdeas }),
+  //     });
+  //     if (response.ok) {
+  //       console.log('Ideas saved');
+  //     } else {
+  //       console.error('Failed to save:', response.status);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error saving:', error);
+  //   }
+  // };
 
   const addIdea = (idea) => {
     const newIdea = { id: Date.now(), ...idea };
@@ -79,9 +79,10 @@ const App = () => {
     setIdeas(updatedIdeas);
   };
 
-  useEffect(() => {
-    saveIdeas();
-  }, [ideas]);
+
+  // useEffect(() => {
+  //   saveIdeas();
+  // }, [ideas]);
 
   return (
     <div>
