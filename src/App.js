@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
-// import Button from '@mui/material/Button';
 import IdeaForm from './IdeaForm';
 import IdeaList from './IdeaList';
 import NavBar from './NavBar';
 import Home from './Home';
 
 
-const App = () => {
+function App() {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
@@ -37,10 +36,8 @@ const App = () => {
     <div>
       {/* <Home /> */}
       <NavBar />
-      
-      {/* <IdeaForm addIdea={addIdea} />
-      <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />
-        <NavBar /> */}
+      {/* <IdeaForm addIdea={addIdea} /> */}
+      {/* <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} /> */}
 
         <Routes>              
           <Route path="/" element={<Home />} />

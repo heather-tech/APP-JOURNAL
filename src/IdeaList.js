@@ -1,7 +1,8 @@
 import React from 'react';
 import Idea from './Idea';
 
-const IdeaList = ({ ideas, deleteIdea, editIdea }) => {
+const IdeaList = ({ideas, deleteIdea, editIdea}) => {
+
   return (
     <div>
       {ideas && ideas.map((idea) => {

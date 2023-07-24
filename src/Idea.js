@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import Button from '@mui/material/Button';
+
 
 const Idea = ({ idea, deleteIdea, editIdea }) => {
   const [isEditing, setIsEditing] = useState(false);
