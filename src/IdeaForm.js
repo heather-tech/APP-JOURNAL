@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 const IdeaForm = ({ addIdea }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [func, setFunc] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch('http://localhost:3001/ideas', {
       method: 'POST',
       headers: {'Content-Type': 'application/json',},
-      body: JSON.stringify({ title:title, description:description }),
+      body: JSON.stringify({ title:title, description:description, func:func }),
     })
     .then(r => r.json())
     .then(ideaObject => {
@@ -19,14 +20,13 @@ const IdeaForm = ({ addIdea }) => {
 
     setTitle('');
     setDescription('');
+    setFunc('')
     })
 
-        .catch(err => {
-          console.log(err)
-        })
+    .catch(err => {
+      console.log(err)
+    })
   };
-
-
 
 
   return (
@@ -38,11 +38,18 @@ const IdeaForm = ({ addIdea }) => {
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
-        placeholder="Description"
+        placeholder="Brief Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button type='submit' >Add Idea</button>
+      <input
+        type="text"
+        placeholder="Functionalities"
+        value={func}
+        onChange={(e) => setFunc(e.target.value)}
+      />
+      <input type="submit" />
+      {/* <button type='submit' >Add Idea</button> */}
     </form>
   );
 };

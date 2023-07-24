@@ -5,6 +5,8 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(idea.title);
   const [description, setDescription] = useState(idea.description);
+  const [func, setFunc] = useState(idea.func);
+
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -26,6 +28,11 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+          <textarea
+            placeholder="Functionalities"
+            value={func}
+            onChange={(e) => setFunc(e.target.value)}
           />
           <button type="submit">Save</button>
         </form>

@@ -20,12 +20,12 @@ function App() {
   };
 
   const deleteIdea = (id) => {
-    const updatedIdeas = ideas.filter((idea) => idea.id !== id);
+    const updatedIdeas = ideas.filter(idea => idea.id !== id);
     setIdeas(updatedIdeas);
   };
 
   const editIdea = (id, updatedIdea) => {
-    const updatedIdeas = ideas.map((idea) =>
+    const updatedIdeas = ideas.map(idea =>
       idea.id === id ? { ...idea, ...updatedIdea } : idea
     );
     setIdeas(updatedIdeas);
@@ -34,17 +34,14 @@ function App() {
 
   return (
     <div>
-      {/* <Home /> */}
       <NavBar />
       {/* <IdeaForm addIdea={addIdea} /> */}
       {/* <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} /> */}
-
-        <Routes>              
-          <Route path="/" element={<Home />} />
-          <Route path="/ideas/new" element={<IdeaForm />} />
-          <Route path="/ideas" element={<IdeaList />} />
-          
-          </Routes>
+      <Routes>              
+        <Route path="/" element={<Home />} />
+        <Route path="/ideas/new" element={<IdeaForm />} />
+        <Route path="/ideas" element={<IdeaList />} />
+      </Routes>
  
     </div>
     );
