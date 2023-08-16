@@ -3,7 +3,8 @@
     {
       "title": "App Journal",
       "description": "Store all of your app ideas!",
-      "id": 1
+      "func": "Edit, Delete, Save",
+      "id": 2
     }
   ]
 }

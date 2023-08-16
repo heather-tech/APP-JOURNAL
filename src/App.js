@@ -10,7 +10,7 @@ function App() {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/ideas")
+    fetch("http://localhost:8000/ideas")
       .then(r => r.json())
       .then(data => setIdeas(data))
   }, []);
@@ -19,10 +19,26 @@ function App() {
     setIdeas([...ideas, idea]);
   };
 
-  const deleteIdea = (id) => {
-    const updatedIdeas = ideas.filter(idea => idea.id !== id);
-    setIdeas(updatedIdeas);
+  const deleteIdea = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:8000/ideas/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        const updatedIdeas = ideas.filter((idea) => idea.id !== id);
+        setIdeas(updatedIdeas);
+      } else {
+        console.error('Failed to delete idea', response.status);
+      }
+    } catch (error) {
+      console.error('Error deleting idea', error);
+    }
   };
+  // (id) => {
+  //   const updatedIdeas = ideas.filter(idea => idea.id !== id);
+  //   setIdeas(updatedIdeas);
+  
 
   const editIdea = (id, updatedIdea) => {
     const updatedIdeas = ideas.map(idea =>
@@ -30,17 +46,18 @@ function App() {
     );
     setIdeas(updatedIdeas);
   };
+  
 
 
   return (
     <div>
       <NavBar />
-      {/* <IdeaForm addIdea={addIdea} /> */}
-      {/* <IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} /> */}
+      
+      
       <Routes>              
         <Route path="/" element={<Home />} />
         <Route path="/ideas/new" element={<IdeaForm />} />
-        <Route path="/ideas" element={<IdeaList />} />
+        <Route path="/ideas" element={<IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />} />
       </Routes>
  
     </div>

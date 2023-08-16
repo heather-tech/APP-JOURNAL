@@ -5,10 +5,11 @@ const IdeaForm = ({ addIdea }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [func, setFunc] = useState('');
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/ideas', {
+    fetch('http://localhost:8000/ideas', {
       method: 'POST',
       headers: {'Content-Type': 'application/json',},
       body: JSON.stringify({ title:title, description:description, func:func }),
@@ -47,9 +48,11 @@ const IdeaForm = ({ addIdea }) => {
         placeholder="Functionalities"
         value={func}
         onChange={(e) => setFunc(e.target.value)}
+        
       />
-      <input type="submit" />
-      {/* <button type='submit' >Add Idea</button> */}
+    
+      <button type="submit">Add Idea</button>
+ 
     </form>
   );
 };

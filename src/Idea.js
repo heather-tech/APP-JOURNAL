@@ -10,7 +10,7 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    editIdea(idea.id, { title, description });
+    editIdea(idea.id, { title, description, func });
     setIsEditing(false);
   };
 
@@ -44,6 +44,7 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
     <li>
       <h3>{idea.title}</h3>
       <p>{idea.description}</p>
+      <p>{idea.func}</p>
       <button onClick={() => deleteIdea(idea.id)}>Delete</button>
       <button onClick={() => setIsEditing(true)}>Edit</button>
     </li>
