@@ -16,7 +16,7 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
 
   if (isEditing) {
     return (
-      <li>
+      
         <form onSubmit={handleEdit}>
           <input
             type="text"
@@ -36,18 +36,18 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
           />
           <button type="submit">Save</button>
         </form>
-      </li>
+      
     );
   }
 
   return (
-    <li>
+    <div>
       <h3>{idea.title}</h3>
-      <p>{idea.description}</p>
-      <p>{idea.func}</p>
+      <p>Description: {idea.description}</p>
+      <p>Functionalities: {idea.func}</p>
       <button onClick={() => deleteIdea(idea.id)}>Delete</button>
       <button onClick={() => setIsEditing(true)}>Edit</button>
-    </li>
+    </div>
   );
 };
 

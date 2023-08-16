@@ -60,7 +60,13 @@ form {
 
 form > input,
 form > textarea {
-  width: 50%
+  box-sizing:border-box;
+  border-color: #000;
+  border-style:double ;
+
+  width: 40%
+  
+  
 }
 
 .idea-card {
@@ -76,6 +82,7 @@ form > textarea {
 
 .idea-card h3 {
   margin-top: 0;
+  text-align: center;
 }
 
 .idea-card p {
@@ -90,6 +97,8 @@ form > textarea {
   margin-right: 5px;
   cursor: pointer;
   border-radius: 4px;
+
+
 }
 
 .idea-list {

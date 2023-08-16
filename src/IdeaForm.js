@@ -8,6 +8,7 @@ const IdeaForm = ({ addIdea }) => {
   
 
   const handleSubmit = (e) => {
+    alert('Idea Saved!');
     e.preventDefault();
     fetch('http://localhost:8000/ideas', {
       method: 'POST',
@@ -18,7 +19,7 @@ const IdeaForm = ({ addIdea }) => {
     .then(ideaObject => {
       console.log(ideaObject)
           addIdea( ideaObject );
-
+        // clear all input values
     setTitle('');
     setDescription('');
     setFunc('')
@@ -37,21 +38,24 @@ const IdeaForm = ({ addIdea }) => {
         placeholder="App Name"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-      />
+        />
+        <br />
       <textarea
         placeholder="Brief Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-      />
+        />
+        <br />
+        
       <input
         type="text"
         placeholder="Functionalities"
         value={func}
         onChange={(e) => setFunc(e.target.value)}
-        
       />
+      <br />
     
-      <button type="submit">Add Idea</button>
+      <button type="submit">Add Idea</button> 
  
     </form>
   );
