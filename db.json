@@ -19,9 +19,9 @@
       "id": 4
     },
     {
-      "title": "g",
-      "description": "g",
-      "func": "g",
+      "title": "Park Finder",
+      "description": "Locate parks near you  ",
+      "func": "Filter, Save, Rate",
       "id": 5
     }
   ]

@@ -41,7 +41,7 @@ const Idea = ({ idea, deleteIdea, editIdea }) => {
   }
 
   return (
-    <div>
+    <div className='idea-card'>
       <h3>{idea.title}</h3>
       <p>Description: {idea.description}</p>
       <p>Functionalities: {idea.func}</p>

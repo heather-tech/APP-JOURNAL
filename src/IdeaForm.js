@@ -8,7 +8,6 @@ const IdeaForm = ({ addIdea }) => {
   
 
   const handleSubmit = (e) => {
-    alert('Idea Saved!');
     e.preventDefault();
     fetch('http://localhost:8000/ideas', {
       method: 'POST',

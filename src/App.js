@@ -56,7 +56,7 @@ function App() {
       
       <Routes>              
         <Route path="/" element={<Home />} />
-        <Route path="/ideas/new" element={<IdeaForm />} />
+        <Route path="/ideas/new" element={<IdeaForm  addIdea={addIdea}/>} />
         <Route path="/ideas" element={<IdeaList ideas={ideas} deleteIdea={deleteIdea} editIdea={editIdea} />} />
       </Routes>
  

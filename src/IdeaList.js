@@ -8,7 +8,6 @@ const IdeaList = ({ideas, deleteIdea, editIdea}) => {
       {ideas.map((idea) => {
         return(
           
-          <div className="idea-card">
             <Idea 
               key={idea.id} 
               idea={idea} 
@@ -16,7 +15,6 @@ const IdeaList = ({ideas, deleteIdea, editIdea}) => {
               // deleteIdea={deleteIdea} 
               editIdea={editIdea} 
             />
-          </div>
           
         );
       })}
